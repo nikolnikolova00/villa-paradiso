@@ -119,26 +119,33 @@ villa-paradiso/
 │
 ├── frontend/
 │   └── src/
-│       ├── app/
+│       ├── assets/
 │       ├── components/
 │       ├── features/
+│       ├── hooks/
 │       ├── layouts/
 │       ├── pages/
+│       │   ├── admin/
+│       │   └── user/
+│       ├── providers/
+│       ├── router/
 │       ├── services/
-│       ├── hooks/
+│       ├── store/
 │       ├── types/
 │       └── utils/
 │
 ├── backend/
+│   ├── prisma/
+│   │   ├── schema.prisma
+│   │   └── migrations/
 │   └── src/
-│       ├── auth/
-│       ├── villa/
-│       ├── bookings/
-│       ├── guests/
-│       ├── payments/
-│       ├── reviews/
-│       └── gallery/
+│       ├── config/
+│       ├── middleware/
+│       ├── modules/
+│       ├── app.ts
+│       └── server.ts
 │
+├── package.json
 └── README.md
 ```
 
@@ -200,7 +207,7 @@ git clone https://github.com/nikolnikolova00/villa-paradiso.git
 cd villa-paradiso
 ```
 
-Install dependencies:
+Install dependencies for the whole workspace:
 
 ```bash
 npm install
@@ -208,12 +215,11 @@ npm install
 
 ### Environment Variables
 
-Create a `.env` file based on `.env.example`.
-
-Example:
+Create a `.env` file in `backend/` based on `.env.example`:
 
 ```env
 DATABASE_URL="postgresql://user:password@localhost:5432/villa_paradiso"
+PORT=4000
 ```
 
 ### Database
@@ -221,20 +227,31 @@ DATABASE_URL="postgresql://user:password@localhost:5432/villa_paradiso"
 Run Prisma migrations:
 
 ```bash
-npx prisma migrate dev
+npm run db:migrate
 ```
 
-Generate Prisma Client:
+Generate the Prisma Client (also runs automatically on install):
 
 ```bash
-npx prisma generate
+npm run db:generate
 ```
 
 ### Run the application
 
+Run the backend and frontend together:
+
 ```bash
 npm run dev
 ```
+
+Or run them individually:
+
+```bash
+npm run dev:backend
+npm run dev:frontend
+```
+
+The backend runs at `http://localhost:4000` and the frontend at `http://localhost:5173`.
 
 ---
 

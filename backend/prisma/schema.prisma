@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -10,4 +5,134 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+enum UserRole {
+  ADMIN
+  STAFF
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  REFUNDED
+  FAILED
+}
+
+model User {
+  id           String   @id @default(uuid()) @db.Uuid
+  email        String   @unique
+  passwordHash String
+  name         String?
+  role         UserRole @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Villa {
+  id            String         @id @default(uuid()) @db.Uuid
+  name          String
+  description   String?
+  address       String?
+  pricePerNight Decimal        @db.Decimal(10, 2)
+  capacity      Int
+  isActive      Boolean        @default(true)
+  gallery       GalleryImage[]
+  reviews       Review[]
+  bookings      Booking[]
+  blockedDates  BlockedDate[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@map("villas")
+}
+
+model Guest {
+  id        String    @id @default(uuid()) @db.Uuid
+  firstName String
+  lastName  String
+  email     String    @unique
+  phone     String?
+  bookings  Booking[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("guests")
+}
+
+model Booking {
+  id         String        @id @default(uuid()) @db.Uuid
+  villa      Villa         @relation(fields: [villaId], references: [id], onDelete: Cascade)
+  villaId    String        @db.Uuid
+  guest      Guest         @relation(fields: [guestId], references: [id], onDelete: Cascade)
+  guestId    String        @db.Uuid
+  checkIn    DateTime      @db.Date
+  checkOut   DateTime      @db.Date
+  status     BookingStatus @default(PENDING)
+  totalPrice Decimal       @db.Decimal(10, 2)
+  payment    Payment?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@index([villaId, checkIn, checkOut])
+  @@map("bookings")
+}
+
+model Payment {
+  id        String        @id @default(uuid()) @db.Uuid
+  booking   Booking       @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  bookingId String        @unique @db.Uuid
+  amount    Decimal       @db.Decimal(10, 2)
+  method    String?
+  status    PaymentStatus @default(PENDING)
+  paidAt    DateTime?
+  createdAt DateTime      @default(now())
+
+  @@map("payments")
+}
+
+model BlockedDate {
+  id        String   @id @default(uuid()) @db.Uuid
+  villa     Villa    @relation(fields: [villaId], references: [id], onDelete: Cascade)
+  villaId   String   @db.Uuid
+  startDate DateTime @db.Date
+  endDate   DateTime @db.Date
+  reason    String?
+  createdAt DateTime @default(now())
+
+  @@index([villaId, startDate, endDate])
+  @@map("blocked_dates")
+}
+
+model GalleryImage {
+  id        String   @id @default(uuid()) @db.Uuid
+  villa     Villa    @relation(fields: [villaId], references: [id], onDelete: Cascade)
+  villaId   String   @db.Uuid
+  url       String
+  alt       String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@map("gallery_images")
+}
+
+model Review {
+  id        String   @id @default(uuid()) @db.Uuid
+  villa     Villa    @relation(fields: [villaId], references: [id], onDelete: Cascade)
+  villaId   String   @db.Uuid
+  guestName String
+  rating    Int
+  comment   String?
+  createdAt DateTime @default(now())
+
+  @@map("reviews")
 }

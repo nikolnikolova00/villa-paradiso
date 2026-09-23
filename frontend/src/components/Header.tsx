@@ -72,6 +72,21 @@ export const Header = () => {
           {t('nav.bookNow')}
         </Button>
       </Box>
+      <Divider />
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 1,
+          p: 2,
+        }}
+      >
+        <Typography variant="body2" sx={{ color: colors.muted }}>
+          {t('common.language')}
+        </Typography>
+        <LanguageSwitcher />
+      </Box>
     </Box>
   );
 
@@ -184,6 +199,15 @@ export const Header = () => {
             >
               {t('nav.bookNow')}
             </Button>
+          </Box>
+
+          <Box
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              alignItems: 'center',
+            }}
+          >
+            <LanguageSwitcher color={textColor} />
           </Box>
         </Toolbar>
       </AppBar>

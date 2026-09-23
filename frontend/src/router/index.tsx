@@ -1,23 +1,23 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { ThemedLayout } from '@refinedev/mui';
-import App from '../App';
 import { ResourceListPage } from '../admin/ResourceListPage';
 import { adminResources } from '../admin/resources';
-import { SidebarTitle } from '../components';
-import { AdminHomePage, UserHomePage, AboutPage, GalleryPage, AccommondationPage } from '../pages';
+import { AdminHeader, SidebarTitle, SiteLayout } from '../components';
+import { AdminHomePage, ComingSoonPage, UserHomePage } from '../pages';
 
 export const AppRoutes = () => (
   <Routes>
-    <Route element={<App />}>
+    <Route element={<SiteLayout />}>
       <Route index element={<UserHomePage />} />
-      <Route path="about" element={<AboutPage />} />
-      <Route path="gallery" element={<GalleryPage />} />
-      <Route path="accommondation" element={<AccommondationPage />} />
+      <Route path="accommodation" element={<ComingSoonPage />} />
+      <Route path="gallery" element={<ComingSoonPage />} />
+      <Route path="about" element={<ComingSoonPage />} />
+      <Route path="contact" element={<ComingSoonPage />} />
     </Route>
     <Route
       path="/admin"
       element={
-        <ThemedLayout Title={SidebarTitle}>
+        <ThemedLayout Title={SidebarTitle} Header={AdminHeader}>
           <Outlet />
         </ThemedLayout>
       }

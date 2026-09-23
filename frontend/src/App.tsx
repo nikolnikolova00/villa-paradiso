@@ -1,29 +1,42 @@
-import { Outlet } from 'react-router-dom';
-import { Fab, Toolbar } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Header, ScrollTop } from './components';
+import { CssBaseline, GlobalStyles } from '@mui/material';
+import { AppProviders } from './providers/AppProviders';
+import { AppRoutes } from './router';
+import { Refine } from '@refinedev/core';
+import { useNotificationProvider } from '@refinedev/mui';
+import routerProvider from '@refinedev/react-router';
+import { adminResources } from './admin/resources';
+import { stubDataProvider } from './admin/stubDataProvider';
+import 'dayjs/locale/bg';
+import { useTranslation } from 'react-i18next';
+import type { TOptions } from 'i18next';
 
 const App = () => {
-  return (
-    <div>
-      <Header />
-      {/* <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/admin">Admin</Link>
-        </nav>
-      </header> */}
-      <main>
-        <Toolbar />
-        <Outlet />
-      </main>
-      <ScrollTop>
-        <Fab size="small" aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop>
-    </div>
-  );
-};
+    const { t, i18n: { language, changeLanguage } } = useTranslation('translation');
+    const i18nProvider = {
+        translate: (key: string, params?: TOptions) => t(key, params),
+        changeLocale: (lang: string) => changeLanguage(lang),
+        getLocale: () => language,
+    };
+
+    return (
+        <AppProviders >
+            <CssBaseline />
+            <GlobalStyles styles={{ html: { WebkitFontSmoothing: 'auto' } }} />
+            <Refine
+                routerProvider={routerProvider}
+                dataProvider={stubDataProvider}
+                notificationProvider={useNotificationProvider}
+                resources={adminResources.map(({ name }) => ({
+                    name,
+                    list: `/admin/${name}`,
+                }))}
+                options={{ syncWithLocation: true }}
+                i18nProvider={i18nProvider}
+            >
+                <AppRoutes />
+            </Refine>
+        </AppProviders>
+    )
+}
 
 export default App;

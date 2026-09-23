@@ -1,35 +1,47 @@
-import * as React from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
+import { useTranslation } from 'react-i18next';
+import {
+  AppBar,
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+  Typography,
+  useScrollTrigger,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import { colors } from '../theme';
 import { navItems } from '../router/navItems';
-import { activeBgr } from '../utils';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Header = () => {
+  const { t } = useTranslation();
   const { pathname } = useLocation();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const scrolled = useScrollTrigger({ disableHysteresis: true, threshold: 40 });
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
+  const isHome = pathname === '/';
+  const transparent = isHome && !scrolled;
+  const textColor = transparent ? colors.white : colors.ink;
 
   const isActive = (to: string) =>
     to === '/' ? pathname === '/' : pathname.startsWith(to);
 
+  const handleDrawerToggle = () => setMobileOpen((prev) => !prev);
+
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+    <Box sx={{ textAlign: 'center' }}>
+      <Typography
+        variant="h5"
+        sx={{ my: 2.5, fontFamily: '"Cormorant Garamond", serif', color: colors.sea }}
+      >
         Villa Paradiso
       </Typography>
       <Divider />
@@ -39,70 +51,155 @@ export const Header = () => {
             <ListItemButton
               component={Link}
               to={item.to}
-              sx={{ textAlign: 'center', ...(isActive(item.to) ? activeBgr : {}) }}
+              onClick={handleDrawerToggle}
+              selected={isActive(item.to)}
+              sx={{ textAlign: 'center' }}
             >
-              <ListItemText primary={item.label} />
+              <ListItemText primary={t(`nav.${item.key}`)} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
+      <Box sx={{ p: 2 }}>
+        <Button
+          component={Link}
+          to="/accommodation"
+          variant="contained"
+          color="secondary"
+          fullWidth
+          onClick={handleDrawerToggle}
+        >
+          {t('nav.bookNow')}
+        </Button>
+      </Box>
     </Box>
   );
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <AppBar component="nav">
-        <Toolbar>
+    <Box component="header">
+      <AppBar
+        position="fixed"
+        sx={{
+          color: textColor,
+          backgroundColor: transparent ? 'transparent' : 'rgba(253, 251, 247, 0.9)',
+          backdropFilter: transparent ? 'none' : 'blur(12px)',
+          borderBottom: transparent
+            ? '1px solid transparent'
+            : `1px solid ${colors.sandDark}`,
+          transition:
+            'background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease',
+        }}
+      >
+        <Toolbar sx={{ minHeight: { xs: 64, md: 76 } }}>
           <IconButton
             color="inherit"
-            aria-label="open drawer"
+            aria-label="Open navigation"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 1, display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
+
+          <Box
             component={Link}
             to="/"
             sx={{
-              flexGrow: 1,
-              display: { xs: 'none', sm: 'block' },
-              color: 'inherit',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1.25,
               textDecoration: 'none',
+              color: 'inherit',
+              flexGrow: { xs: 1, md: 0 },
             }}
           >
-            Villa Paradiso
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Box
+              component="img"
+              src="/palmIcon.png"
+              alt=""
+              sx={{ height: 34, width: 'auto' }}
+            />
+            <Typography
+              sx={{
+                fontFamily: '"Cormorant Garamond", serif',
+                fontWeight: 600,
+                fontSize: '1.5rem',
+                lineHeight: 1,
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Villa Paradiso
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              alignItems: 'center',
+              gap: 0.5,
+              mx: 'auto',
+            }}
+          >
             {navItems.map((item) => (
               <Button
                 key={item.to}
                 component={Link}
                 to={item.to}
-                sx={{ color: '#fff', ...(isActive(item.to) ? activeBgr : {}) }}
+                sx={{
+                  color: 'inherit',
+                  fontWeight: isActive(item.to) ? 700 : 500,
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: 6,
+                    left: 26,
+                    right: 26,
+                    height: 2,
+                    backgroundColor: colors.terracotta,
+                    transform: isActive(item.to) ? 'scaleX(1)' : 'scaleX(0)',
+                    transformOrigin: 'left',
+                    transition: 'transform 0.25s ease',
+                  },
+                }}
               >
-                {item.label}
+                {t(`nav.${item.key}`)}
               </Button>
             ))}
           </Box>
+
+          <Box
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              alignItems: 'center',
+              gap: 1,
+            }}
+          >
+            <LanguageSwitcher color={textColor} />
+            <Button
+              component={Link}
+              to="/accommodation"
+              variant="contained"
+              color="secondary"
+            >
+              {t('nav.bookNow')}
+            </Button>
+          </Box>
         </Toolbar>
       </AppBar>
-      <nav>
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{ keepMounted: true }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
+
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: 'block', md: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 280 },
+        }}
+      >
+        {drawer}
+      </Drawer>
     </Box>
   );
-}
+};

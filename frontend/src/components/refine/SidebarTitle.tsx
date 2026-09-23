@@ -6,7 +6,7 @@ export const SidebarTitle = ({ collapsed }: { collapsed?: boolean }) => (
     to="/"
     style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}
   >
-    <Box component="img" src="/favicon.svg" alt="Villa Paradiso" sx={{ height: 24, width: 24 }} />
+    <Box component="img" src="/palmIcon.png" alt="Villa Paradiso" sx={{ height: 24, width: 24 }} />
     {!collapsed && (
       <Typography variant="h6" fontWeight={700} color="text.primary" noWrap>
         Villa Paradiso

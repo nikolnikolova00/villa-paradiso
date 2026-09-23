@@ -1,4 +1,4 @@
-import type { AmenityId, Distance, GalleryImage } from '../types/villa';
+import type { AmenityId, Distance, GalleryImage, GallerySection } from '../types/villa';
 
 const unsplash = (id: string, w = 1600, h = 1200) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`;
@@ -14,48 +14,56 @@ export const ctaImage = unsplash('photo-1505142468610-359e7d316be0', 2400, 1200)
 
 export const locationImage = unsplash('photo-1519046904884-53103b34b206', 1400, 1400);
 
-export const galleryImages: GalleryImage[] = [
+export const gallerySections: GallerySection[] = [
   {
-    id: 'pool',
-    src: unsplash('photo-1571003123894-1f0594d2b5d9'),
-    alt: 'Private swimming pool overlooking the sea',
-  },
-  {
-    id: 'living',
-    src: unsplash('photo-1616486338812-3dadae4b4ace'),
-    alt: 'Bright open-plan living room',
-  },
-  {
-    id: 'bedroom',
-    src: unsplash('photo-1493809842364-78817add7ffb'),
-    alt: 'Serene bedroom with sea breeze',
-  },
-  {
-    id: 'terrace',
-    src: unsplash('photo-1544551763-46a013bb70d5'),
-    alt: 'Terrace with a view of the bay',
-  },
-  {
-    id: 'bathroom',
-    src: unsplash('photo-1571508601891-ca5e7a713859'),
-    alt: 'Spa-style bathroom',
+    id: 'backyard',
+    labelKey: 'backyard',
+    images: [
+      { id: 'pool', src: unsplash('photo-1571003123894-1f0594d2b5d9'), alt: 'Private swimming pool overlooking the sea' },
+      { id: 'garden', src: unsplash('photo-1600585154340-be6161a56a0c'), alt: 'The villa surrounded by Mediterranean gardens' },
+      { id: 'pergola', src: unsplash('photo-1600607687939-ce8a6c25118c'), alt: 'Shaded pergola for alfresco afternoons' },
+    ],
   },
   {
     id: 'dining',
-    src: unsplash('photo-1414235077428-338989a2e8c0'),
-    alt: 'Dining area for long evenings',
+    labelKey: 'dining',
+    images: [
+      { id: 'dining', src: unsplash('photo-1414235077428-338989a2e8c0'), alt: 'Dining area for long evenings' },
+      { id: 'living', src: unsplash('photo-1616486338812-3dadae4b4ace'), alt: 'Bright open-plan living room' },
+      { id: 'kitchen', src: unsplash('photo-1600489000022-c2086d79f9d4'), alt: 'Fully equipped kitchen' },
+    ],
   },
   {
-    id: 'coast',
-    src: unsplash('photo-1500375592092-40eb2168fd21'),
-    alt: 'Crystal clear water along the coast',
+    id: 'bedroom',
+    labelKey: 'bedroom',
+    images: [
+      { id: 'bedroom', src: unsplash('photo-1493809842364-78817add7ffb'), alt: 'Serene bedroom with sea breeze' },
+      { id: 'bedroomTwo', src: unsplash('photo-1522708323590-d24dbb6b0267'), alt: 'Second bedroom bathed in morning light' },
+      { id: 'bedroomThree', src: unsplash('photo-1560448204-e02f11c3d0e2'), alt: 'Cosy twin bedroom' },
+    ],
   },
   {
-    id: 'villa',
-    src: unsplash('photo-1600585154340-be6161a56a0c'),
-    alt: 'The villa surrounded by Mediterranean gardens',
+    id: 'bathroom',
+    labelKey: 'bathroom',
+    images: [
+      { id: 'bathroom', src: unsplash('photo-1571508601891-ca5e7a713859'), alt: 'Spa-style bathroom' },
+      { id: 'bathroomTwo', src: unsplash('photo-1552321554-5fefe8c9ef14'), alt: 'Marble bathroom with walk-in shower' },
+    ],
+  },
+  {
+    id: 'surroundings',
+    labelKey: 'surroundings',
+    images: [
+      { id: 'coast', src: unsplash('photo-1500375592092-40eb2168fd21'), alt: 'Crystal clear water along the coast' },
+      { id: 'beach', src: unsplash('photo-1507525428034-b723cf961d3e'), alt: 'Quiet pebble beach moments away' },
+      { id: 'snorcheling', src: unsplash('photo-1544551763-46a013bb70d5'), alt: 'Terrace with a view of the bay' },
+    ],
   },
 ];
+
+export const galleryImages: GalleryImage[] = gallerySections.flatMap(
+  (section) => section.images,
+);
 
 export const amenityIds: AmenityId[] = [
   'pool',

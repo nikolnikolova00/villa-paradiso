@@ -4,6 +4,19 @@ export type GalleryImage = {
   alt: string;
 };
 
+export type GallerySectionKey =
+  | 'backyard'
+  | 'dining'
+  | 'bedroom'
+  | 'bathroom'
+  | 'surroundings';
+
+export type GallerySection = {
+  id: string;
+  labelKey: GallerySectionKey;
+  images: GalleryImage[];
+};
+
 export type Review = {
   name: string;
   location: string;

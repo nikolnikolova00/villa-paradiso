@@ -87,6 +87,13 @@ const en = {
     subtitle:
       'A glimpse of the spaces, the light and the little details that make a stay here feel like home.',
     cta: 'View full gallery',
+    sections: {
+      backyard: 'Backyard & pool',
+      dining: 'Dining room',
+      bedroom: 'Bedrooms',
+      bathroom: 'Bathrooms',
+      surroundings: 'Surroundings and activities',
+    },
   },
   reviews: {
     overline: 'Guest reviews',

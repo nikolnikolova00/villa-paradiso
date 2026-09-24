@@ -1,11 +1,10 @@
 import { CssBaseline, GlobalStyles } from '@mui/material';
-import { AppProviders } from './providers/AppProviders';
-import { AppRoutes } from './router';
+import { AppProviders } from 'providers';
+import { AppRoutes } from 'router';
 import { Refine } from '@refinedev/core';
 import { useNotificationProvider } from '@refinedev/mui';
 import routerProvider from '@refinedev/react-router';
-import { adminResources } from './admin/resources';
-import { stubDataProvider } from './admin/stubDataProvider';
+import { adminResources, stubDataProvider } from 'admin';
 import 'dayjs/locale/bg';
 import { useTranslation } from 'react-i18next';
 import type { TOptions } from 'i18next';

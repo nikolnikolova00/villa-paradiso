@@ -7,6 +7,19 @@
     "types": ["vite/client"],
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
+    "paths": {
+      "admin": ["./src/admin"],
+      "components": ["./src/components"],
+      "data": ["./src/data"],
+      "features": ["./src/features"],
+      "i18n": ["./src/i18n"],
+      "pages": ["./src/pages"],
+      "providers": ["./src/providers"],
+      "router": ["./src/router"],
+      "theme": ["./src/theme"],
+      "types": ["./src/types"],
+      "utils": ["./src/utils"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

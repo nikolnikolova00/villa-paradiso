@@ -1,6 +1,6 @@
 import { useScrollTrigger, Fade, Box, Fab } from "@mui/material";
-import { scrollToTop } from "../utils";
-import { colors } from "../theme";
+import { scrollToTop } from 'utils';
+import { colors } from 'theme';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 

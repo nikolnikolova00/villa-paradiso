@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Stack, Typography } from '@mui/material';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
-import { colors } from '../../../theme';
-import { distances, locationImage } from '../../../data/home';
-import { site } from '../../../data/site';
-import { ScrollReveal } from '../../../components';
+import { colors } from 'theme';
+import { distances, locationImage } from 'data';
+import { site } from 'data';
+import { ScrollReveal } from 'components';
 
 export const LocationSection = () => {
   const { t } = useTranslation();

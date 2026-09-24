@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import { colors } from '../../../theme';
-import { RatingStars, ScrollReveal, Section, SectionHeading } from '../../../components';
-import type { Review } from '../../../types';
+import { colors } from 'theme';
+import { RatingStars, ScrollReveal, Section, SectionHeading } from 'components';
+import type { Review } from 'types';
 
 export const ReviewsSection = () => {
   const { t } = useTranslation();

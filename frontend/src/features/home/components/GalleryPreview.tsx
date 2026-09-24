@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Box, Button } from '@mui/material';
-import { galleryImages } from '../../../data/home';
-import { ResponsiveImage, Section, SectionHeading } from '../../../components';
+import { galleryImages } from 'data';
+import { ResponsiveImage, Section, SectionHeading } from 'components';
 
 export const GalleryPreview = () => {
   const { t } = useTranslation();

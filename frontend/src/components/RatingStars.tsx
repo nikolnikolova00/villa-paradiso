@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { colors } from '../theme';
+import { colors } from 'theme';
 
 type RatingStarsProps = {
   rating: number;

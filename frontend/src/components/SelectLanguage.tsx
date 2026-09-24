@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { MenuItem, Select } from '@mui/material';
-import { languages } from '../i18n';
+import { languages } from 'i18n';
 
 type SelectLanguageProps = {
   color?: string;

@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Container, Typography } from '@mui/material';
-import { colors } from '../../theme';
+import { colors } from 'theme';
 
 export const ComingSoonPage = () => {
   const { t } = useTranslation();

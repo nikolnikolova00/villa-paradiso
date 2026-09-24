@@ -9,10 +9,10 @@ import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import DeskIcon from '@mui/icons-material/Desk';
-import { colors } from '../../../theme';
-import { amenityIds } from '../../../data/home';
-import { ScrollReveal, Section, SectionHeading } from '../../../components';
-import type { AmenityId } from '../../../types/villa';
+import { colors } from 'theme';
+import { amenityIds } from 'data';
+import { ScrollReveal, Section, SectionHeading } from 'components';
+import type { AmenityId } from 'types';
 
 const amenityIcons: Record<AmenityId, SvgIconComponent> = {
   pool: PoolIcon,

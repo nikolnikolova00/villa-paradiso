@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { colors } from '../theme';
+import { colors } from 'theme';
 
 type SectionHeadingProps = {
   overline?: string;

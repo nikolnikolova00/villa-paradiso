@@ -1,9 +1,13 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { ThemedLayout } from '@refinedev/mui';
-import { ResourceListPage } from '../admin/ResourceListPage';
-import { adminResources } from '../admin/resources';
-import { AdminHeader, SidebarTitle, SiteLayout } from '../components';
-import { AboutPage, AdminHomePage, ComingSoonPage, GalleryPage, UserHomePage } from '../pages';
+import { ResourceListPage, adminResources } from 'admin';
+import { AdminHeader, SidebarTitle, SiteLayout } from 'components';
+import { AboutPage, AdminHomePage, ComingSoonPage, GalleryPage, UserHomePage } from 'pages';
+
+/* eslint-disable react-refresh/only-export-components */
+export { navItems } from './navItems';
+export type { NavKey } from './navItems';
+/* eslint-enable react-refresh/only-export-components */
 
 export const AppRoutes = () => (
   <Routes>

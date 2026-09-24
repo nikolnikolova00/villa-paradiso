@@ -17,8 +17,8 @@ import {
   useScrollTrigger,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { colors } from '../theme';
-import { navItems } from '../router/navItems';
+import { colors } from 'theme';
+import { navItems } from 'router';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Header = () => {

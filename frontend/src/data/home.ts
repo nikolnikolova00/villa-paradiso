@@ -1,5 +1,5 @@
-import type { AmenityId, Distance, GalleryImage, GallerySection } from '../types/villa';
-import { unsplash } from '../utils';
+import type { AmenityId, Distance, GalleryImage, GallerySection } from 'types';
+import { unsplash } from 'utils';
 
 export const heroImage = unsplash('photo-1507525428034-b723cf961d3e', 2400, 1600);
 

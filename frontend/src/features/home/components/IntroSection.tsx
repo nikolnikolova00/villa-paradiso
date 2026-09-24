@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { colors } from '../../../theme';
-import { introImages } from '../../../data/home';
-import { ScrollReveal } from '../../../components';
-import type { Stat } from '../../../types/villa';
+import { colors } from 'theme';
+import { introImages } from 'data';
+import { ScrollReveal } from 'components';
+import type { Stat } from 'types';
 
 export const IntroSection = () => {
   const { t } = useTranslation();

@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Box, Container, Divider, Typography } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material/styles';
-import { colors } from '../theme';
-import { navItems } from '../router/navItems';
-import { site } from '../data/site';
+import { colors } from 'theme';
+import { navItems } from 'router';
+import { site } from 'data';
 
 const linkSx: SxProps<Theme> = {
   display: 'block',

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Box, Paper, Stack, Typography } from '@mui/material';
-import { adminResources } from '../../admin/resources';
+import { adminResources } from 'admin';
 
 export const AdminHomePage = () => {
   return (

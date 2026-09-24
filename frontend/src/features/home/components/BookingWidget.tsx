@@ -12,7 +12,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
-import { colors } from '../../../theme';
+import { colors } from 'theme';
 
 const guestOptions = [1, 2, 3, 4, 5, 6, 7, 8];
 

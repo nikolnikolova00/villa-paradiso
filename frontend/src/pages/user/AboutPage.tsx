@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { Box, Stack, Typography } from '@mui/material';
-import { colors } from '../../theme';
-import { aboutImages, aboutValueKeys } from '../../data/about';
-import { ResponsiveImage, ScrollReveal, Section, SectionHeading } from '../../components';
+import { colors } from 'theme';
+import { aboutImages, aboutValueKeys } from 'data';
+import { ResponsiveImage, ScrollReveal, Section, SectionHeading } from 'components';
 
 export const AboutPage = () => {
   const { t } = useTranslation();

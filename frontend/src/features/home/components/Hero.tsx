@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { colors } from '../../../theme';
-import { heroImage } from '../../../data/home';
+import { colors } from 'theme';
+import { heroImage } from 'data';
 
 export const Hero = () => {
   const { t } = useTranslation();

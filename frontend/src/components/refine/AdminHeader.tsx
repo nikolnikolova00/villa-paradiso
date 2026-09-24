@@ -1,5 +1,5 @@
 import { AppBar, Box, Toolbar } from '@mui/material';
-import { SelectLanguage } from '../SelectLanguage';
+import { SelectLanguage } from 'components';
 
 export const AdminHeader = () => (
   <AppBar

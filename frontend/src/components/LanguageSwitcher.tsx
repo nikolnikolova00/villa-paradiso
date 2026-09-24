@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Menu, MenuItem } from '@mui/material';
 import LanguageIcon from '@mui/icons-material/Language';
-import { languages } from '../i18n';
+import { languages } from 'i18n';
 
 type LanguageSwitcherProps = {
   color?: string;

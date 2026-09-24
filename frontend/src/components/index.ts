@@ -11,5 +11,4 @@ export { LanguageSwitcher } from './LanguageSwitcher';
 export { SelectLanguage } from './SelectLanguage';
 
 // refine
-export { SidebarTitle } from './refine/SidebarTitle';
-export { AdminHeader } from './refine/AdminHeader';
+export { SidebarTitle, AdminHeader } from './refine';

@@ -1,13 +1,13 @@
 import { Box, Container } from '@mui/material';
-import { Section } from '../../components';
-import { Hero } from '../../features/home/components/Hero';
-import { BookingWidget } from '../../features/home/components/BookingWidget';
-import { IntroSection } from '../../features/home/components/IntroSection';
-import { AmenitiesSection } from '../../features/home/components/AmenitiesSection';
-import { GalleryPreview } from '../../features/home/components/GalleryPreview';
-import { ReviewsSection } from '../../features/home/components/ReviewsSection';
-import { LocationSection } from '../../features/home/components/LocationSection';
-import { CtaSection } from '../../features/home/components/CtaSection';
+import { Section } from 'components';
+import { Hero } from 'features';
+import { BookingWidget } from 'features';
+import { IntroSection } from 'features';
+import { AmenitiesSection } from 'features';
+import { GalleryPreview } from 'features';
+import { ReviewsSection } from 'features';
+import { LocationSection } from 'features';
+import { CtaSection } from 'features';
 
 export const UserHomePage = () => {
   return (

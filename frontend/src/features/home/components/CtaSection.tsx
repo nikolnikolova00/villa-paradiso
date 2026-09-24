@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Container, Typography } from '@mui/material';
-import { colors } from '../../../theme';
-import { ctaImage } from '../../../data/home';
+import { colors } from 'theme';
+import { ctaImage } from 'data';
 
 export const CtaSection = () => {
   const { t } = useTranslation();

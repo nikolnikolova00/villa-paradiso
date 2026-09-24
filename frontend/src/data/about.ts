@@ -1,5 +1,5 @@
-import { unsplash } from '../utils';
-import type { AboutValueKey } from '../types/villa';
+import { unsplash } from 'utils';
+import type { AboutValueKey } from 'types';
 
 export const aboutImages = {
   hero: unsplash('photo-1600585154340-be6161a56a0c', 2400, 1400),

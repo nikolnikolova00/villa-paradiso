@@ -11,9 +11,9 @@ import {
   useTheme,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { ResponsiveImage, Section, SectionHeading } from '../../components';
-import { gallerySections } from '../../data/home';
-import { colors } from '../../theme';
+import { ResponsiveImage, Section, SectionHeading } from 'components';
+import { gallerySections } from 'data';
+import { colors } from 'theme';
 
 export const GalleryPage = () => {
   const { t } = useTranslation();

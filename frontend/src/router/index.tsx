@@ -3,7 +3,7 @@ import { ThemedLayout } from '@refinedev/mui';
 import { ResourceListPage } from '../admin/ResourceListPage';
 import { adminResources } from '../admin/resources';
 import { AdminHeader, SidebarTitle, SiteLayout } from '../components';
-import { AdminHomePage, ComingSoonPage, GalleryPage, UserHomePage } from '../pages';
+import { AboutPage, AdminHomePage, ComingSoonPage, GalleryPage, UserHomePage } from '../pages';
 
 export const AppRoutes = () => (
   <Routes>
@@ -11,7 +11,7 @@ export const AppRoutes = () => (
       <Route index element={<UserHomePage />} />
       <Route path="accommodation" element={<ComingSoonPage />} />
       <Route path="gallery" element={<GalleryPage />} />
-      <Route path="about" element={<ComingSoonPage />} />
+      <Route path="about" element={<AboutPage />} />
       <Route path="contact" element={<ComingSoonPage />} />
     </Route>
     <Route

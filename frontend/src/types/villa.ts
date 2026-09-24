@@ -24,6 +24,8 @@ export type Review = {
   comment: string;
 };
 
+export type AboutValueKey = 'location' | 'design' | 'hosting' | 'nature';
+
 export type Stat = {
   value: string;
   label: string;

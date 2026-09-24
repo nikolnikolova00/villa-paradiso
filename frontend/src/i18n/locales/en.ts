@@ -136,6 +136,46 @@ const en = {
     cta: 'Get directions',
     mapNote: 'Interactive map coming soon',
   },
+  about: {
+    overline: 'About us',
+    title: 'A villa shaped by the sea',
+    subtitle:
+      'For over a decade we have welcomed guests to a quiet corner of the bay — and to a slower way of living.',
+    story: {
+      overline: 'Our story',
+      title: 'Restored with patience',
+      body1:
+        'Villa Paradiso began as a family summer house, built in the 1970s and left to the salt and sun. When we took it on, we knew we wanted to keep its soul.',
+      body2:
+        'We restored it slowly, room by room, with local craftsmen, natural stone and warm oak. The result is a home that feels both timeless and effortless.',
+      body3:
+        'Today the villa is a place for gathering — for long breakfasts, afternoons by the pool and dinners that stretch into the night under the pergola.',
+    },
+    values: {
+      overline: 'What guides us',
+      title: 'The little things we never skip',
+      subtitle:
+        'Four principles behind every stay, whether it is your first visit or your tenth.',
+      items: {
+        location: {
+          title: 'Sense of place',
+          description: 'Local stone, local hands and the light of the bay in every room.',
+        },
+        design: {
+          title: 'Calm design',
+          description: 'Natural materials and uncluttered spaces that let you breathe.',
+        },
+        hosting: {
+          title: 'Thoughtful hosting',
+          description: 'A discreet, responsive team that is there exactly when you need it.',
+        },
+        nature: {
+          title: 'Close to nature',
+          description: 'Sea air, olive groves and the sound of the waves throughout the day.',
+        },
+      },
+    },
+  },
   cta: {
     title: 'Ready for your escape?',
     subtitle: 'Check availability and reserve your dates in just a few clicks.',

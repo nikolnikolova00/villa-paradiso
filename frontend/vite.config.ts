@@ -17,6 +17,7 @@ export default defineConfig({
       pages: `${src}/pages`,
       providers: `${src}/providers`,
       router: `${src}/router`,
+      services: `${src}/services`,
       theme: `${src}/theme`,
       types: `${src}/types`,
       utils: `${src}/utils`,

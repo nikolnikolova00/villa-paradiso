@@ -26,6 +26,10 @@ export type Review = {
 
 export type AboutValueKey = 'location' | 'design' | 'hosting' | 'nature';
 
+export type ContactInfoKey = 'email' | 'phone' | 'address';
+
+export type ContactFaqKey = 'booking' | 'checkIn' | 'pets' | 'parking';
+
 export type Stat = {
   value: string;
   label: string;

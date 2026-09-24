@@ -176,6 +176,65 @@ const en = {
       },
     },
   },
+  contact: {
+    overline: 'Contact',
+    title: 'We would love to hear from you',
+    subtitle:
+      'Questions about availability, the villa or your stay — send us a note and we will reply within a day.',
+    info: {
+      overline: 'Get in touch',
+      title: 'Reach us directly',
+      body: 'Prefer to write or call? Use the details below and we will be happy to help.',
+      items: {
+        email: 'Email',
+        phone: 'Phone',
+        address: 'Address',
+      },
+      follow: 'Follow us',
+    },
+    form: {
+      title: 'Send a message',
+      nameLabel: 'Name',
+      emailLabel: 'Email',
+      mobileLabel: 'Mobile number (optional)',
+      mobilePlaceholder: 'Optional',
+      subjectLabel: 'Subject',
+      subjectPlaceholder: 'About your stay',
+      defaultSubject: 'Enquiry from Villa Paradiso',
+      messageLabel: 'Message',
+      submit: 'Send message',
+      sending: 'Sending…',
+      error: 'Something went wrong. Please try again or email us directly.',
+      autoresponse: 'Thank you for your enquiry! We will get back to you shortly.',
+    },
+    faq: {
+      overline: 'Good to know',
+      title: 'Frequently asked questions',
+      subtitle: 'A few answers before you reach out — and we are always happy to help.',
+      items: {
+        booking: {
+          question: 'How do I make a booking?',
+          answer:
+            'Send us your preferred dates using the form and we will confirm availability within a day, along with everything you need to secure your stay.',
+        },
+        checkIn: {
+          question: 'What are the check-in and check-out times?',
+          answer:
+            'Check-in is from 15:00 and check-out is until 11:00. Let us know if you need flexibility and we will do our best to help.',
+        },
+        pets: {
+          question: 'Are pets allowed?',
+          answer:
+            'Well-behaved pets are welcome on request. Just mention them in your message so we can prepare the villa accordingly.',
+        },
+        parking: {
+          question: 'Is parking available?',
+          answer:
+            'Yes, the villa has private off-street parking for up to two cars, free for all guests throughout the stay.',
+        },
+      },
+    },
+  },
   cta: {
     title: 'Ready for your escape?',
     subtitle: 'Check availability and reserve your dates in just a few clicks.',

@@ -2,7 +2,7 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import { ThemedLayout } from '@refinedev/mui';
 import { ResourceListPage, adminResources } from 'admin';
 import { AdminHeader, SidebarTitle, SiteLayout } from 'components';
-import { AboutPage, AdminHomePage, ComingSoonPage, ContactPage, GalleryPage, UserHomePage } from 'pages';
+import { AboutPage, AccommodationPage, AdminHomePage, ContactPage, GalleryPage, UserHomePage } from 'pages';
 
 /* eslint-disable react-refresh/only-export-components */
 export { navItems } from './navItems';
@@ -13,7 +13,7 @@ export const AppRoutes = () => (
   <Routes>
     <Route element={<SiteLayout />}>
       <Route index element={<UserHomePage />} />
-      <Route path="accommodation" element={<ComingSoonPage />} />
+      <Route path="accommodation" element={<AccommodationPage />} />
       <Route path="gallery" element={<GalleryPage />} />
       <Route path="about" element={<AboutPage />} />
       <Route path="contact" element={<ContactPage />} />

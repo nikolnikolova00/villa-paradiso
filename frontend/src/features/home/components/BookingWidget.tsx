@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   Box,
@@ -16,11 +17,33 @@ import { colors } from 'theme';
 
 const guestOptions = [1, 2, 3, 4, 5, 6, 7, 8];
 
-export const BookingWidget = () => {
+const minNightsForDate = (date: Dayjs) => (date.month() === 6 || date.month() === 7 ? 5 : 3);
+
+type BookingWidgetProps = {
+  searchHref?: string;
+};
+
+export const BookingWidget = ({ searchHref = '/accommodation' }: BookingWidgetProps = {}) => {
   const { t } = useTranslation();
-  const [checkIn, setCheckIn] = useState<Dayjs | null>(dayjs().add(1, 'day'));
-  const [checkOut, setCheckOut] = useState<Dayjs | null>(dayjs().add(4, 'day'));
+  const [checkIn, setCheckIn] = useState<Dayjs | null>(() => dayjs().add(1, 'day'));
+  const [checkOut, setCheckOut] = useState<Dayjs | null>(() => {
+    const start = dayjs().add(1, 'day');
+    return start.add(minNightsForDate(start), 'day');
+  });
   const [guests, setGuests] = useState(2);
+
+  const minNights = checkIn ? minNightsForDate(checkIn) : 3;
+  const checkOutMinDate = checkIn ? checkIn.add(minNights, 'day') : dayjs().add(3, 'day');
+
+  const handleCheckInChange = (value: Dayjs | null) => {
+    setCheckIn(value);
+    if (!value) return;
+
+    const earliestCheckOut = value.add(minNightsForDate(value), 'day');
+    if (!checkOut || checkOut.isBefore(earliestCheckOut)) {
+      setCheckOut(earliestCheckOut);
+    }
+  };
 
   return (
     <Paper
@@ -42,7 +65,7 @@ export const BookingWidget = () => {
         <DatePicker
           label={t('booking.checkIn')}
           value={checkIn}
-          onChange={(value) => setCheckIn(value)}
+          onChange={handleCheckInChange}
           minDate={dayjs()}
           slotProps={{ textField: { fullWidth: true } }}
         />
@@ -50,7 +73,7 @@ export const BookingWidget = () => {
           label={t('booking.checkOut')}
           value={checkOut}
           onChange={(value) => setCheckOut(value)}
-          minDate={checkIn ?? dayjs()}
+          minDate={checkOutMinDate}
           slotProps={{ textField: { fullWidth: true } }}
         />
         <TextField
@@ -67,6 +90,8 @@ export const BookingWidget = () => {
           ))}
         </TextField>
         <Button
+          component={Link}
+          to={searchHref}
           variant="contained"
           color="secondary"
           size="large"

@@ -16,6 +16,79 @@ const en = {
     ctaSecondary: 'Explore the villa',
     scroll: 'Scroll to discover',
   },
+  accommodation: {
+    hero: {
+      overline: 'Your stay',
+      title: 'Stay at Villa Paradiso',
+      subtitle:
+        'Choose your dates and send us a note — we will confirm availability and help you plan the rest of your stay.',
+      cta: 'Check availability',
+    },
+    booking: {
+      overline: 'Availability',
+      title: 'Find your dates',
+      subtitle:
+        'Select your check-in, check-out and guest count. We will confirm availability within a day.',
+      note: 'No payment is taken now — send us your dates and we will confirm your stay.',
+      enquiry: 'Send an enquiry',
+    },
+    rates: {
+      overline: 'Rates',
+      title: 'Simple, seasonal pricing',
+      subtitle:
+        'Rates are for the whole villa and include everything you need for a relaxed stay.',
+      perNight: 'per night',
+      minStay: 'Minimum stay {{count}} nights',
+      includedTitle: 'Included in every stay',
+      included: {
+        linens: 'Fresh linens and towels',
+        cleaning: 'Final cleaning',
+        utilities: 'Utilities and Wi-Fi',
+        welcome: 'Welcome basket on arrival',
+      },
+      plans: {
+        spring: {
+          name: 'Spring',
+          description: 'April — June',
+        },
+        summer: {
+          name: 'Summer',
+          description: 'July — August',
+        },
+        autumn: {
+          name: 'Autumn',
+          description: 'September — October',
+        },
+      },
+      details: {
+        checkIn: 'Check-in from 15:00',
+        checkOut: 'Check-out until 11:00',
+        cancellation: 'Free cancellation up to 30 days before arrival',
+      },
+    },
+    overview: {
+      overline: 'The villa',
+      title: 'A private home by the sea',
+      body1:
+        'Villa Paradiso welcomes up to eight guests across four serene bedrooms, with a spacious dining room, a chef kitchen and terraces overlooking the bay.',
+      body2:
+        'Just 80 metres from a quiet pebble beach, the villa is ideal for family holidays and gatherings with friends.',
+      cta: 'Explore the gallery',
+      facts: {
+        guests: 'Guests',
+        bedrooms: 'Bedrooms',
+        bathrooms: 'Bathrooms',
+        beach: 'To the beach',
+      },
+    },
+    enquiry: {
+      overline: 'Need help?',
+      title: "Can't find your dates?",
+      subtitle: 'Send us a note and we will help you find the right stay.',
+      contact: 'Contact us',
+      email: 'Email us',
+    },
+  },
   booking: {
     title: 'Plan your stay',
     checkIn: 'Check-in',

@@ -51,3 +51,22 @@ export type AmenityId =
   | 'parking'
   | 'bbq'
   | 'workspace';
+
+export type AccommodationFactKey = 'guests' | 'bedrooms' | 'bathrooms' | 'beach';
+
+export type AccommodationFact = {
+  key: AccommodationFactKey;
+  value: string;
+};
+
+export type RatePlanKey = 'spring' | 'summer' | 'autumn';
+
+export type RatePlan = {
+  key: RatePlanKey;
+  price: number;
+  minNights: number;
+};
+
+export type AccommodationIncludedKey = 'linens' | 'cleaning' | 'utilities' | 'welcome';
+
+export type AccommodationDetailKey = 'checkIn' | 'checkOut' | 'cancellation';
